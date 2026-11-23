@@ -1,0 +1,15 @@
+commit #1 web for drlang & structure folder configure 
+- first : web ini di pindahkna terpisah dari repository aslinya 
+- update : halaman di handle berdasarkan component yang di pilih atau selected ( single page )
+- add : type type yang menjadi penentu halaman dan section per halaman 
+- add : add package icon ( @lucide/svelte )
+- add : current template halaman install , blog dan tools
+- update : di setiap sub documentasi pages docs , example di tampilna berdasarkna yang di pilih dengan harapan lebih menjalaskan code sekarang dan tidak tergangu dengan code selain itu
+- update : mengubah cara handle `onePage` menjadi stardar page pada umumnya 
+- update : penyesuian desain pada tampilan utama 
+- add : data operator dan management di docs pages
+
+
+
+
+

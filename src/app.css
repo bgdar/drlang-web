@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import url('https://googleapis.com');
+
+@theme {
+  --color-main: #1c1d21;
+
+  /* Kelompok Hitam & Gelap  */
+  --color-main-1: #2e3035;
+  --color-main-2: #3a3c42;
+  --color-main-3: #474950;
+
+  /* Kelompok Abu-Abu Menengah  */
+  --color-gray-1: #60636a;
+  --color-gray-2: #7b7e85;
+  --color-gray-3: #979aa0;
+  --color-gray-4: #cdd0d4;
+
+  /* Kelompok Putih Kelabu  */
+  --color-white-light-1: #e2e4e6;
+  --color-white-light-2: #f8f9fa;
+  --color-white-light-3: #fafafb;
+
+
+  --background-gradient-main-dark: linear-gradient(
+    to right,
+    var(--color-main),
+    var(--color-main-2)
+  );
+  --background-gradient-main-light: linear-gradient(
+    to right,
+    var(--color-main-1),
+    var(--color-main-3)
+  );
+  /* gradient abu-abu (gray) */
+  --background-gradient-gray-fade: linear-gradient(
+    to right,
+    var(--color-gray-1),
+    var(--color-gray-3)
+  );
+  --background-gradient-gray-smooth: linear-gradient(
+    to right,
+    var(--color-gray-2),
+    var(--color-gray-4)
+  );
+  /* gradient kombinasi gelap ke abu-abu */
+  --background-gradient-main-to-gray: linear-gradient(
+    to bottom right,
+    var(--color-main),
+    var(--color-gray-2)
+  );
+}
+
+
+
+@layer utilities {
+  .font-pixel-title {
+    font-family: 'Press Start 2P', monospace;
+  }
+  .font-pixel-body {
+    font-family: 'Silkscreen', monospace;
+  }
+  .pixel-art {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+  /* Bayangan kotak tajam khas UI game retro */
+  .pixel-box {
+    box-shadow: 4px 4px 0px 0px var(--color-main);
+  }
+  .pixel-box-light {
+    box-shadow: 4px 4px 0px 0px var(--color-gray-1);
+  }
+  .pixel-btn {
+    box-shadow: 4px 4px 0px 0px var(--color-gray-1);
+  }
+  .pixel-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px 0px transparent;
+  }
+}
+
+
+@font-face {
+  font-family: "Departure";
+  src:
+    url("./assets/DepartureMonoNerdFont-Regular.otf") format("otf"),
+    url("./assets/DepartureMonoNerdFont-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Departure", sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
