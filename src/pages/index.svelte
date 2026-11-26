@@ -3,6 +3,9 @@
   import Footer from "../lib/components/footer.svelte";
   import { features } from "../lib/data";
 
+    import { langState } from "../lib/language";
+    import { LANG_KEYS } from "../lib/type/language";
+
   // import GearAnimation from "../icon/gear-animation.svelte";
   import { pagesName, type PropsGlobal } from "../lib/type/pagesLink";
 
@@ -56,8 +59,7 @@ drout.log("hellow word")`;
       <p
         class="mt-6 max-w-md mx-auto md:mx-0 text-xs sm:text-sm text-gray-3 leading-relaxed"
       >
-        Bahasa pemrograman yang berfokus pada performa tinggi dan kemudahan
-        dalam penggunaan.
+  {$langState.t(LANG_KEYS.INDEX.HERO_DESCRIPTION)}
       </p>
 
       <div class="mt-8">
@@ -160,3 +162,6 @@ drout.log("hellow word")</pre>
     </div>
   </div>
 </div>
+
+
+<Footer/>

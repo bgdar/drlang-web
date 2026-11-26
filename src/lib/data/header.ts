@@ -16,6 +16,8 @@ export const pagesLinks: pageLink[] = [
   { name: pagesName.Tools },
   { name: pagesName.Install },
   { name: pagesName.Docs },
+  { name: pagesName.StdMethod },
+  { name: pagesName.GlobalMethod },
   { name: pagesName.Blog },
 ];
 

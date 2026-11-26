@@ -1,14 +1,12 @@
 <script lang="ts">
-  import { extractSectionNav } from "../../helper/docs";
-  import type {
-    AllTypeSelected,
-    PartialDocumentationSelected,
-  } from "../../type/docs/section";
+
+  import { extractSectionNav } from "../../helper"
+    import type { AllTypeGlobalSelected, PartialGlobalSelected } from "../../type/globalMethod/section";
 
   interface Props {
-    data: PartialDocumentationSelected;
-    handleSelectedSubSection: (sectionType: AllTypeSelected) => void;
-    activeKey?: AllTypeSelected;
+    data:PartialGlobalSelected;
+    handleSelectedSubSection: (sectionType: AllTypeGlobalSelected ) => void;
+    activeKey?: AllTypeGlobalSelected;
     heading?: string;
   }
 
@@ -38,7 +36,7 @@
     <nav>
       <ul class="space-y-1">
         {#each sections as item (item.key)}
-          {@const isActive = activeKey === item.key}
+          {@const isActive = activeKey === item.key  }
           <li>
             <button
               type="button"

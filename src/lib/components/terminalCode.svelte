@@ -1,28 +1,26 @@
 <script lang="ts">
-  import type { DokumentasiCodeItem } from "../../type/docs/codeItem";
-  import type {
-    PartialDocumentationSelected,
-    AllTypeSelected,
-    TipeSectionSelected,
-  } from "../../type/docs/section";
+  import type { DokumentasiCodeItem } from "../type/codeItem";
+  import  type { AllTypeSectionSelected } from "../type/sections";
 
   type Props = {
-    currentContent: PartialDocumentationSelected;
-    currentSection: TipeSectionSelected;
+    //  currentContent: PartialDocumentationSelected;
+    // currentSection: TipeSectionSelected;
+    currentSection?: string;
 
     // penentu gabungan type untuk di tampilkan per section
-    tipeSelected: AllTypeSelected;
+    tipeSelected: AllTypeSectionSelected;
+    aktiveDocs: DokumentasiCodeItem | undefined;
   };
 
-  let { currentSection, currentContent, tipeSelected }: Props = $props();
+  let { aktiveDocs, currentSection, tipeSelected }: Props = $props();
 
-  let aktiveDocs = $derived(currentContent[tipeSelected]);
+  // let aktiveDocs = $derived(currentContent[tipeSelected]);
 </script>
 
 {#if aktiveDocs}
   <div
     id={String(tipeSelected)}
-    class="bg-main border-4 border-main-3 pixel-box-light"
+    class="space-y-4 bg-main border-4 border-main-3 pixel-box-light"
   >
     <div
       class="bg-main-2 px-4 py-3 flex items-center justify-between border-b-4 border-main-3"

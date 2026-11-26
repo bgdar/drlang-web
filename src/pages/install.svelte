@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { langState } from "../lib/language";
+    import { LANG_KEYS } from "../lib/type/language";
+
   type OS = "windows" | "macos" | "linux";
 
   let selectedOS = $state<OS>("windows");
@@ -61,12 +64,11 @@
       >
         Instalasi Dr Lang
       </h1>
-      <p
-        class="font-pixel-body text-gray-1 text-xs sm:text-sm leading-relaxed max-w-2xl"
-      >
-        Ikuti langkah-langkah di bawah ini untuk memasang Kompilator Dr Lang di
-        komputer Anda dalam hitungan detik.
-      </p>
+   <p
+    class="font-pixel-body text-gray-1 text-xs sm:text-sm leading-relaxed max-w-2xl"
+  >
+  {$langState.t(LANG_KEYS.INSTALL.INSTALL_SUBTITLE)}
+  </p>
     </header>
 
     <!-- LANGKAH 1: PILIH SISTEM OPERASI & PERINTAH INSTALASI -->

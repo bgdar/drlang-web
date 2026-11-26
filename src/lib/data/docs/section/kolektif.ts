@@ -14,22 +14,25 @@ let nilai = data[0];`,
     title: "Vector",
     desc: "Vector adalah array dinamis yang ukurannya dapat bertambah atau berkurang secara fleksibel saat runtime. Dialokasikan di dalam Heap dan secara otomatis melakukan realokasi kapasitas ketika ruang penyimpanan penuh.",
     code: `// Membuat vector dinamis baru
-vec list = [];
+vec vector = [int][1,2];
+
+// mengakses 
+int sample1 = vector[0]
 
 // Menambahkan data secara dinamis
-list.push(100);
-list.push(200);
+vector.push(100);
+vector.push(200);
 
 let total = list.len();`,
   },
   list: {
-    title: "Linked List",
-    desc: "List (Linked List) adalah struktur data berantai yang menghubungkan setiap elemen (node) melalui pointer. Sangat efisien untuk operasi penyisipan atau penghapusan elemen di tengah koleksi tanpa perlu menggeser memori.",
+    title: "List",
+    desc: "List adalah structure data yang memiliki expresi , dan bisa menyimpan banyak jenis type , bahkan operasi di dalam nya",
     code: `// Inisialisasi linked list baru
-list angka =;
+list listData = [];
 
 // Menambah elemen di depan dan belakang
-angka.push_front(5);
+listData.push_front(5);
 angka.push_back(40);`,
   },
 };

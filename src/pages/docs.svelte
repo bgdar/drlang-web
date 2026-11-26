@@ -1,19 +1,18 @@
 <script lang="ts">
-  import DaftarPages from "../lib/components/docs/daftarPages.svelte";
-  import DaftarSections from "../lib/components/docs/daftarSections.svelte";
-  import { pageDocsData } from "../lib/data/docs/pageDocs";
-  import type { DokumentasiCodeItem } from "../lib/type/docs/codeItem";
+  import { pageDocsData } from "../lib/data/pageDocs";
   import { VariableTipeDocsData } from "../lib/data/docs/section/variabel-tipe";
   import type {
-    AllTypeSelected,
-    PartialDocumentationSelected,
-    TipeSectionSelected,
+    AllTypeDocsSelected,
+    PartialDocsSelected,
+    TipeDocsSectionSelected,
   } from "../lib/type/docs/section";
   import { KolektifDocsData } from "../lib/data/docs/section/kolektif";
-  import SectionDocs from "../lib/components/docs/sectionDocs.svelte";
   import { FunctionDocsData } from "../lib/data/docs/section/function";
   import { ControlFlowDocsData } from "../lib/data/docs/section/controllFlow";
   import { OperatorDocsData } from "../lib/data/docs/section/operator";
+  import DaftarDocsSections from "../lib/components/docs/daftarDocsSections.svelte";
+  import TerminalCode from "../lib/components/terminalCode.svelte";
+  import DaftarPages from "../lib/components/daftarPages.svelte";
 
   let searchQuery = $state("");
   // Reactive statement: memfilter daftar halaman berdasarkan input pencarian
@@ -23,9 +22,9 @@
     ),
   );
 
-  let currentSection = $state<TipeSectionSelected>("variabelTipe");
+  let currentSection = $state<TipeDocsSectionSelected>("variabelTipe");
 
-  let dataCurrentSection = $derived.by<PartialDocumentationSelected>(() => {
+  let dataCurrentSection = $derived.by<PartialDocsSelected>(() => {
     if (currentSection === "variabelTipe") {
       return VariableTipeDocsData;
     } else if (currentSection == "operator") {
@@ -40,38 +39,38 @@
 
     return {};
   });
-  // Filter digunakan untuk memastikan nilai undefined dari Partial terbuang secara aman di TypeScript
-  let docsArrayUntukSub = $derived<DokumentasiCodeItem[]>(
-    Object.values(dataCurrentSection).filter(
-      (item): item is DokumentasiCodeItem => item !== undefined,
-    ),
-  );
 
   // Sub section
-  let selectedSubSection = $state<AllTypeSelected>("int");
+  let selectedSubSection = $state<AllTypeDocsSelected>("int");
 
-  const handleSelectedSection = (section: TipeSectionSelected) => {
-    currentSection = section;
+  const handleSelectedSection = (section: string) => {
+    // binding di sini
+    let sectionNew = section as TipeDocsSectionSelected;
+    currentSection = sectionNew;
 
-    if (section === "variabelTipe") {
+    if (sectionNew === "variabelTipe") {
       selectedSubSection =
-        (Object.keys(VariableTipeDocsData)[0] as AllTypeSelected) ?? "int";
-    } else if (section === "kolektif") {
+        (Object.keys(VariableTipeDocsData)[0] as AllTypeDocsSelected) ?? "int";
+    } else if (sectionNew === "kolektif") {
       selectedSubSection =
-        (Object.keys(KolektifDocsData)[0] as AllTypeSelected) ?? "array";
-    } else if (section === "operator") {
+        (Object.keys(KolektifDocsData)[0] as AllTypeDocsSelected) ?? "array";
+    } else if (sectionNew === "operator") {
       selectedSubSection =
-        (Object.keys(OperatorDocsData) as AllTypeSelected) ?? "aritmatika";
-    } else if (section === "fungsi") {
+        (Object.keys(OperatorDocsData)[0] as AllTypeDocsSelected) ??
+        "aritmatika";
+    } else if (sectionNew === "fungsi") {
       selectedSubSection =
-        (Object.keys(FunctionDocsData)[0] as AllTypeSelected) ?? "basic";
+        (Object.keys(FunctionDocsData)[0] as AllTypeDocsSelected) ?? "basic";
     } else if (section === "structurKontroll") {
       selectedSubSection =
-        (Object.keys(ControlFlowDocsData)[0] as AllTypeSelected) ?? "ifElse";
+        (Object.keys(ControlFlowDocsData)[0] as AllTypeDocsSelected) ??
+        "ifElse";
     }
   };
 
-  const handleSelectedSubSection = (newSectioon: AllTypeSelected) => {
+  let aktiveDocs = $derived(dataCurrentSection[selectedSubSection]);
+
+  const handleSelectedSubSection = (newSectioon: AllTypeDocsSelected) => {
     selectedSubSection = newSectioon;
   };
 </script>
@@ -87,12 +86,12 @@
         {searchQuery}
         {handleSelectedSection}
         {filteredDocs}
-        activePage={currentSection}
+        activePage={String(currentSection)}
       />
     </div>
 
     <div class="p-4 bg-white-light-2 border-4 border-main-3 pixel-box shrink-0">
-      <DaftarSections
+      <DaftarDocsSections
         {handleSelectedSubSection}
         data={dataCurrentSection}
         activeKey={selectedSubSection}
@@ -139,10 +138,15 @@
     </section>
 
     <section class="mb-10">
-      <SectionDocs
-        {currentSection}
+      <!-- <SectionCodes -->
+      <!--   {currentSection} -->
+      <!--   tipeSelected={selectedSubSection} -->
+      <!--   currentContent={dataCurrentSection} -->
+      <!-- /> -->
+      <TerminalCode
+        currentSection={String(currentSection)}
         tipeSelected={selectedSubSection}
-        currentContent={dataCurrentSection}
+        {aktiveDocs}
       />
     </section>
   </main>

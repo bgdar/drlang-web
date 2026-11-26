@@ -1,5 +1,5 @@
+@import url("https://googleapis.com");
 @import "tailwindcss";
-@import url('https://googleapis.com');
 
 @theme {
   --color-main: #1c1d21;
@@ -19,7 +19,6 @@
   --color-white-light-1: #e2e4e6;
   --color-white-light-2: #f8f9fa;
   --color-white-light-3: #fafafb;
-
 
   --background-gradient-main-dark: linear-gradient(
     to right,
@@ -50,14 +49,12 @@
   );
 }
 
-
-
 @layer utilities {
   .font-pixel-title {
-    font-family: 'Press Start 2P', monospace;
+    font-family: "Press Start 2P", monospace;
   }
   .font-pixel-body {
-    font-family: 'Silkscreen', monospace;
+    font-family: "Silkscreen", monospace;
   }
   .pixel-art {
     image-rendering: pixelated;
@@ -78,7 +75,6 @@
     box-shadow: 0px 0px 0px 0px transparent;
   }
 }
-
 
 @font-face {
   font-family: "Departure";

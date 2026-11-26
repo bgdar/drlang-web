@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo.png" alt="DrLang" width="200">
+  <img src="public/favicon.ico" alt="DrLang" width="200">
   <h1 align="center">
   Dr Lang 
   </h1>
