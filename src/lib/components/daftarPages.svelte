@@ -1,13 +1,12 @@
 <script lang="ts">
   import { ChevronRight, Hash } from "@lucide/svelte";
-  import type { TipeSectionSelected } from "../../type/docs/section";
-  import type { PageLinkDocs } from "../../type/pagesLink";
+  import type { PageLinkDocs } from "../type/pagesLink";
 
   interface Props {
     searchQuery: string;
     filteredDocs: PageLinkDocs[];
-    activePage: TipeSectionSelected;
-    handleSelectedSection: (section: TipeSectionSelected) => void;
+    activePage: string;
+    handleSelectedSection: (section: string) => void;
   }
 
   let {
@@ -44,7 +43,7 @@
 
     <div class="flex flex-col gap-2">
       {#each filteredDocs as doc (doc.tipeSection)}
-        {@const isActive = activePage === doc.tipeSection}
+        {@const isActive = activePage === String(doc.tipeSection)}
         <button
           type="button"
           onclick={() => handleSelectedSection(doc.tipeSection)}

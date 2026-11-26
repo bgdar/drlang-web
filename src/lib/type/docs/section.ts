@@ -1,6 +1,6 @@
-import type { DokumentasiCodeItem } from "./codeItem";
+import type { DokumentasiCodeItem } from "../codeItem";
 
-export type TipeSectionSelected =
+export type TipeDocsSectionSelected =
   "kolektif" | "variabelTipe" | "fungsi" | "structurKontroll" | "operator";
 
 // ------ Var tipe section -------
@@ -41,12 +41,13 @@ export type ControlFlowDokumentasiType = Record<
 >;
 
 // abungkan semua tipe dokumentasi di sini
-export type allDokumentasiMap = VariableTipeDokumentasiType &
+export type AllDocsMap = VariableTipeDokumentasiType &
   KolektifDokumentasiType &
   FunctionDokumentasiType &
-  TipeControlFlowKey &
+  ControlFlowDokumentasiType &
   OperatorDokumentasiType;
 
-export type AllTypeSelected = keyof allDokumentasiMap;
+export type AllTypeDocsSelected = keyof AllDocsMap;
+
 //  Partial agar tidak wajib mengisi semua key
-export type PartialDocumentationSelected = Partial<allDokumentasiMap>;
+export type PartialDocsSelected = Partial<AllDocsMap>;
