@@ -1,8 +1,15 @@
+import {
+  BracesIcon,
+  CornerDownLeft,
+  GitFork,
+  SlidersHorizontal,
+} from "@lucide/svelte";
 import type { FunctionDokumentasiType } from "../../../type/docs/section";
 
 export const FunctionDocsData: FunctionDokumentasiType = {
   basic: {
     title: "Deklarasi Function (fn)",
+    icon: BracesIcon,
     desc: "Function di Dr Lang diawali dengan kata kunci fn, diikuti tanda titik dua (:) dan indentasi spasi sebagai penanda blok kode. Secara default, parameter dan nilai kembalian bernilai void/Null jika tidak didefinisikan.",
     code: `call std.drout
 
@@ -14,6 +21,7 @@ sapa()`,
   },
   parameter: {
     title: "Parameter Function",
+    icon: SlidersHorizontal,
     desc: "Parameter ditulis di dalam tanda kurung dengan menyebutkan tipe data diikuti nama variabelnya. Jika dikosongkan, parameter akan dianggap void secara default.",
     code: `call std.drout
 
@@ -25,6 +33,7 @@ tampilkan_user(25, "Budi")`,
   },
   return: {
     title: "Return Value",
+    icon: CornerDownLeft,
     desc: "Tipe nilai kembalian ditentukan menggunakan tanda panah (->) sebelum tanda titik dua (:). Jika tidak ada tipe return yang ditulis, compiler otomatis mengisinya dengan tipe Null (TokenType).",
     code: `call std.drout
 
@@ -41,6 +50,7 @@ drout.log(hasil)`,
   },
   nested: {
     title: "Nested Function",
+    icon: GitFork,
     desc: "Dr Lang mendukung fungsi bersarang (nested function) yang diproses menggunakan pembacaan rekursif. Catatan: untuk saat ini, child function belum dapat mengakses variabel milik parent secara langsung kecuali diteruskan melalui parameter.",
     code: `call std.drout
 

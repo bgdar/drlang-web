@@ -3,23 +3,22 @@
   import Dr from "../../icon/dr.svelte";
   import type { PropsGlobal } from "../type/pagesLink";
   import { pagesLinks, socialLinks } from "../data/header";
-    import { langState ,setLang ,currentLang} from "../language";
-    import type { ChangeEventHandler } from "svelte/elements";
-    import { LANG_KEYS, type Locale } from "../type/language";
+  import { langState, setLang, currentLang } from "../language";
+  import type { ChangeEventHandler } from "svelte/elements";
+  import { LANG_KEYS, type Locale } from "../type/language";
 
   const { handleChangePage }: PropsGlobal = $props();
   let isMobileMenuOpen = $state(false);
 
-
-
   function toggleMenu() {
     isMobileMenuOpen = !isMobileMenuOpen;
   }
-const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
-  setLang(event.currentTarget.value as Locale);
-};
+  const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (
+    event,
+  ) => {
+    setLang(event.currentTarget.value as Locale);
+  };
 </script>
-
 
 <header
   class="relative bg-main text-white-light-1 border-b-4 border-main-3 px-4 sm:px-6 py-4 flex items-center justify-between font-pixel-body z-50"
@@ -41,7 +40,7 @@ const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
           onclick={() => handleChangePage(link.name)}
           class="underline cursor-pointer underline-offset-4 text-gray-4 hover:text-white-light-3 transition-colors"
         >
-          { link.name}
+          {link.name}
         </button>
       {/each}
     </nav>
@@ -111,7 +110,9 @@ const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
       class="lg:hidden absolute top-full left-0 w-full bg-main-1 border-b-4 border-x-4 border-main-3 pixel-box p-5 flex flex-col space-y-5"
     >
       <nav class="flex flex-col space-y-2.5">
-        <span class="font-pixel-title text-[10px] text-gray-2 uppercase tracking-widest mb-1">
+        <span
+          class="font-pixel-title text-[10px] text-gray-2 uppercase tracking-widest mb-1"
+        >
           {$langState.t(LANG_KEYS.NAV.NAV_TITLE)}
         </span>
 
@@ -120,8 +121,10 @@ const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
             onclick={() => handleChangePage(link.name)}
             class="w-full text-left px-3 py-2.5 bg-main border-2 border-main-3 text-gray-4 hover:text-white-light-3 hover:border-gray-2 active:translate-x-1 active:translate-y-1 transition-none text-sm cursor-pointer flex items-center justify-between group"
           >
-            <span>{ link.name}</span>
-            <span class="opacity-0 group-hover:opacity-100 text-white-light-3 font-pixel-title text-xs">
+            <span>{link.name}</span>
+            <span
+              class="opacity-0 group-hover:opacity-100 text-white-light-3 font-pixel-title text-xs"
+            >
               &lt;
             </span>
           </button>
@@ -132,7 +135,9 @@ const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
 
       <div class="flex flex-col space-y-4">
         <div class="flex flex-col space-y-2">
-          <span class="font-pixel-title text-[10px] text-gray-2 uppercase tracking-widest">
+          <span
+            class="font-pixel-title text-[10px] text-gray-2 uppercase tracking-widest"
+          >
             {$langState.t(LANG_KEYS.NAV.SOCIAL_TITLE)}
           </span>
           <nav class="flex flex-wrap items-center gap-3">
@@ -154,7 +159,9 @@ const handleLanguageChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
 
         <!-- Dropdown Bahasa versi Mobile -->
         <div class="flex flex-col space-y-2">
-          <span class="font-pixel-title text-[10px] text-gray-2 uppercase tracking-widest">
+          <span
+            class="font-pixel-title text-[10px] text-gray-2 uppercase tracking-widest"
+          >
             {$langState.t(LANG_KEYS.NAV.LANG_TITLE)}
           </span>
           <div class="relative flex items-center w-full">

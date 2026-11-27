@@ -1,8 +1,10 @@
+import { Terminal } from "@lucide/svelte";
 import type { DrinTipeDokumentasiType } from "../../../type/stdMethod/section";
 
 export const DrinStdData: DrinTipeDokumentasiType = {
   input: {
     title: "Input String (drin.input)",
+    icon: Terminal,
     desc: "Membaca satu baris teks masukan dari terminal pengguna dan mengembalikannya sebagai tipe data string.",
     code: `
 call std.drout

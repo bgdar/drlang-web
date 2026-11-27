@@ -1,9 +1,11 @@
+import { SquareTerminal } from "@lucide/svelte";
 import type { DroutTipeDokumentasiType } from "../../../type/stdMethod/section";
 
 export const DroutStdData: DroutTipeDokumentasiType = {
   log: {
     title: "Output Log (drout.log)",
     desc: "Mencetak teks string atau hasil evaluasi ekspresi matematika langsung ke terminal output standar.",
+    icon: SquareTerminal,
     code: `
 call std.drout
 drout.log("Masukkan nama Anda: ")

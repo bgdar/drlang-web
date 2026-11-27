@@ -11,7 +11,7 @@ export const pagesName = {
   Index: "index",
   Docs: "docs",
   StdMethod: "std method",
-  GlobalMethod: "global method",
+  BuilindMethod: "builind method",
   Install: "install",
   Tools: "tools",
   Blog: "blog",

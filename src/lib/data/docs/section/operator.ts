@@ -1,8 +1,17 @@
 import type { OperatorDokumentasiType } from "../../../type/docs/section";
 
+import {
+  ArrowLeftRight,
+  Binary,
+  Calculator,
+  Equal,
+  Sparkles,
+} from "@lucide/svelte";
+
 export const OperatorDocsData: OperatorDokumentasiType = {
   aritmatika: {
     title: "Operator Aritmatika",
+    icon: Calculator,
     desc: "Digunakan untuk melakukan operasi perhitungan matematika dasar pada tipe numerik (int dan float), meliputi perkalian (*), pembagian (/), penjumlahan (+), dan pengurangan (-).",
     code: `call std.drout
 
@@ -16,6 +25,7 @@ drout.log(a / b) // Pembagian: 5`,
   },
   assignment: {
     title: "Assignment Operator",
+    icon: Equal,
     desc: "Digunakan untuk memberikan atau memperbarui nilai ke dalam sebuah variabel secara ringkas menggunakan operator dasar (=) maupun compound assignment (+= dan -=).",
     code: `call std.drout
 
@@ -28,6 +38,7 @@ drout.log(skor)`,
   },
   logika: {
     title: "Operator Logika & Kondisi",
+    icon: Binary,
     desc: "Digunakan untuk menggabungkan atau membalikkan ekspresi kondisi boolean menggunakan kata kunci yang mudah dibaca: and (dan), or (atau), serta not (negasi).",
     code: `call std.drout
 
@@ -40,6 +51,7 @@ drout.log(not admin)       // true`,
   },
   unary: {
     title: "Unary Operator",
+    icon: ArrowLeftRight,
     desc: "Operator yang bekerja pada satu buah operan saja, yaitu tanda minus (-) untuk membalikkan tanda nilai numerik dan kata kunci (not) untuk membalikkan nilai kebenaran boolean.",
     code: `call std.drout
 
@@ -54,6 +66,7 @@ drout.log(kebalikan)`,
   },
   advancedAssignment: {
     title: "Assignment Lanjutan & Indexing",
+    icon: Sparkles,
     desc: "Mendukung pengisian nilai tingkat lanjut seperti chained assignment (berantai), tuple unpacking untuk menukar nilai, walrus operator (:=) di dalam kondisi, serta pengubahan elemen koleksi melalui indeks.",
     code: `call std.drout
 

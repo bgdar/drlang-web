@@ -3,6 +3,7 @@
   import DaftarStdSection from "../lib/components/stdMethod/daftarStdSection.svelte";
   import TerminalCode from "../lib/components/terminalCode.svelte";
   import { pageStdMethodData } from "../lib/data/pageDocs";
+  import { ConversiDocsData } from "../lib/data/stdMethod/section/conversi";
   import { DrinStdData } from "../lib/data/stdMethod/section/drin";
   import { DroutStdData } from "../lib/data/stdMethod/section/drout";
   import type {
@@ -26,6 +27,10 @@
       return DroutStdData;
     } else if (currentSection == "drin") {
       return DrinStdData;
+    } else if (currentSection === "conversi") {
+      return ConversiDocsData;
+    } else if (currentSection == "utility") {
+      return DrinStdData;
     }
     return {};
   });
@@ -43,6 +48,12 @@
     } else if (sectionNew === "drin") {
       selectedSubSection =
         (Object.keys(DrinStdData)[0] as AllTypeStdSelected) ?? "input";
+    } else if (sectionNew === "conversi") {
+      selectedSubSection =
+        (Object.keys(ConversiDocsData)[0] as AllTypeStdSelected) ?? "int";
+    } else if (sectionNew === "utility") {
+      selectedSubSection =
+        (Object.keys(ConversiDocsData)[0] as AllTypeStdSelected) ?? "len";
     }
   };
 

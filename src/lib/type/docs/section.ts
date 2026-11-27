@@ -1,7 +1,7 @@
 import type { DokumentasiCodeItem } from "../codeItem";
 
 export type TipeDocsSectionSelected =
-  "kolektif" | "variabelTipe" | "fungsi" | "structurKontroll" | "operator";
+  "kolektif" | "variabelTipe" | "fungsi" | "condition" | "loop" | "operator";
 
 // ------ Var tipe section -------
 export type TipeVarTipeKey = "int" | "str" | "float";
@@ -34,18 +34,26 @@ export type FunctionDokumentasiType = Record<
 >;
 
 // -------- Control Flow ---------
-export type TipeControlFlowKey = "ifElse" | "loop";
-export type ControlFlowDokumentasiType = Record<
-  TipeControlFlowKey,
+// export type TipeControlFlowKey = "ifElse" | "loop";
+// export type ControlFlowDokumentasiType = Record<
+//   TipeControlFlowKey,
+//   DokumentasiCodeItem
+// >;
+export type TipeConditionKey = "if" | "elif" | "ifElse";
+export type ConditionDokumentasiType = Record<
+  TipeConditionKey,
   DokumentasiCodeItem
 >;
+export type TipeLoopKey = "for" | "forOnly";
+export type LoopDokumentasiType = Record<TipeLoopKey, DokumentasiCodeItem>;
 
 // abungkan semua tipe dokumentasi di sini
 export type AllDocsMap = VariableTipeDokumentasiType &
   KolektifDokumentasiType &
   FunctionDokumentasiType &
-  ControlFlowDokumentasiType &
-  OperatorDokumentasiType;
+  OperatorDokumentasiType &
+  ConditionDokumentasiType &
+  LoopDokumentasiType;
 
 export type AllTypeDocsSelected = keyof AllDocsMap;
 

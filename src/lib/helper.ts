@@ -45,6 +45,7 @@ export function extractSectionNav<K extends AllTypeSectionSelected>(
       {
         key,
         title: item.title,
+        icon: item.icon,
       },
     ];
   });

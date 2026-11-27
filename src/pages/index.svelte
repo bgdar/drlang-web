@@ -3,8 +3,10 @@
   import Footer from "../lib/components/footer.svelte";
   import { features } from "../lib/data";
 
-    import { langState } from "../lib/language";
-    import { LANG_KEYS } from "../lib/type/language";
+  import Favicon from "../../public/favicon.ico";
+
+  import { langState } from "../lib/language";
+  import { LANG_KEYS } from "../lib/type/language";
 
   // import GearAnimation from "../icon/gear-animation.svelte";
   import { pagesName, type PropsGlobal } from "../lib/type/pagesLink";
@@ -59,7 +61,7 @@ drout.log("hellow word")`;
       <p
         class="mt-6 max-w-md mx-auto md:mx-0 text-xs sm:text-sm text-gray-3 leading-relaxed"
       >
-  {$langState.t(LANG_KEYS.INDEX.HERO_DESCRIPTION)}
+        {$langState.t(LANG_KEYS.INDEX.HERO_DESCRIPTION)}
       </p>
 
       <div class="mt-8">
@@ -77,7 +79,7 @@ drout.log("hellow word")`;
         class="w-full max-w-md p-6 sm:p-8 bg-main border-4 border-main-3 pixel-box-light flex items-center justify-center"
       >
         <img
-          src="/favicon.ico"
+          src={Favicon}
           alt="Dr Lang Icon"
           class="w-40 h-40 sm:w-56 sm:h-56 object-contain pixel-art"
         />
@@ -163,5 +165,4 @@ drout.log("hellow word")</pre>
   </div>
 </div>
 
-
-<Footer/>
+<Footer />

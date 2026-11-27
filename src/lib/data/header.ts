@@ -17,8 +17,8 @@ export const pagesLinks: pageLink[] = [
   { name: pagesName.Install },
   { name: pagesName.Docs },
   { name: pagesName.StdMethod },
-  { name: pagesName.GlobalMethod },
   { name: pagesName.Blog },
+  { name: pagesName.BuilindMethod },
 ];
 
 export interface SocialLink {

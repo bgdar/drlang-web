@@ -8,11 +8,12 @@
   } from "../lib/type/docs/section";
   import { KolektifDocsData } from "../lib/data/docs/section/kolektif";
   import { FunctionDocsData } from "../lib/data/docs/section/function";
-  import { ControlFlowDocsData } from "../lib/data/docs/section/controllFlow";
   import { OperatorDocsData } from "../lib/data/docs/section/operator";
   import DaftarDocsSections from "../lib/components/docs/daftarDocsSections.svelte";
   import TerminalCode from "../lib/components/terminalCode.svelte";
   import DaftarPages from "../lib/components/daftarPages.svelte";
+  import { LoopDocsData } from "../lib/data/docs/section/loop";
+  import { ConditionDocsData } from "../lib/data/docs/section/condition";
 
   let searchQuery = $state("");
   // Reactive statement: memfilter daftar halaman berdasarkan input pencarian
@@ -33,8 +34,10 @@
       return KolektifDocsData;
     } else if (currentSection === "fungsi") {
       return FunctionDocsData;
-    } else if (currentSection == "structurKontroll") {
-      return ControlFlowDocsData;
+    } else if (currentSection == "loop") {
+      return LoopDocsData;
+    } else if (currentSection == "condition") {
+      return ConditionDocsData;
     }
 
     return {};
@@ -61,10 +64,12 @@
     } else if (sectionNew === "fungsi") {
       selectedSubSection =
         (Object.keys(FunctionDocsData)[0] as AllTypeDocsSelected) ?? "basic";
-    } else if (section === "structurKontroll") {
+    } else if (section === "loop") {
       selectedSubSection =
-        (Object.keys(ControlFlowDocsData)[0] as AllTypeDocsSelected) ??
-        "ifElse";
+        (Object.keys(LoopDocsData)[0] as AllTypeDocsSelected) ?? "for";
+    } else if (section === "condition") {
+      selectedSubSection =
+        (Object.keys(ConditionDocsData)[0] as AllTypeDocsSelected) ?? "if";
     }
   };
 

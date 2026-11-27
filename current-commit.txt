@@ -1,12 +1,11 @@
-commit #2 update data , add page standar method , global method , update structure forlder
-- update :  sectionCode dan terminalCode di pindahkan ke root untuk di gunaka di setip component 
-- add : helper menggunakn generic type 
-- update : penyesuian syntax pada data untuk halaman yng mau di tampilkan
-- update : memindahkan component sectionDocs menjadi SectionCode agar bisa di gunakan untuk beberapa pages
-- add : menambhakna halaman standar method 
-- add : menambahkan halaman Global method
-- update : page link untuk setiap documentasi memiliki type yang sama global
-- add :  menambah handle baru untuk mengatur language 
-- add & update : header sudah bisa di mobile views
-- add : bahasa bisa rekatif , di ambil berdasarkan data yang ada di language.ts
+commit #2 migrasikan global method -> standar method  , update desian
+- delete & update : tidka ada lagi global method , melainkan migrasi ke standar method kategory semua
+- add : menambhakan template untuk buitin method ( yakni kategory method lain yang berbeda nya method ini di tambahkan langsung oleh kompilator)
+- update : memisahkan controll flow menjadi kategory sendiri 
+- add : menambah handle Looading ( pada 1 halaman karena system komponent )
+- add : di codeItem sudah bsia menampung icon 
+- add : update setiap jenis section dengan tema retro pixe
+
+
+
 
